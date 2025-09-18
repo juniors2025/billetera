@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frente Acción — Elecciones 2025</title>
+    <meta name="description" content="Frente Acción | Elecciones 2025 — Renovación de Autoridades SUTE. Propuesta, equipo, calendario y contacto." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="icon" href="assets/favicon.ico" />
+  </head>
+  <body>
+    <a class="skip-link" href="#inicio">Saltar al contenido</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-content">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+          <img class="logo-img" src="scripts/assets/LOGO.png" alt="Frente Acción logo" />
+          <span class="brand-text">Frente Acción</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegación principal">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+          </button>
+          <ul id="menu" class="menu">
+            <li><a href="#propuesta">Propuesta</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#calendario">Calendario</a></li>
+            <li><a href="#contacto" class="btn btn-primary">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <!-- Hero -->
+      <section class="hero" aria-label="Portada">
+        <div class="hero-media">
+          <!-- Imagen de banner provista por el usuario -->
+          <img src="scripts/assets/WhatsApp%20Image%202025-09-08%20at%2015.40.07.jpeg" alt="Frente Acción — Elecciones 2025, Renovación de Autoridades SUTE" />
+        </div>
+        <div class="container hero-content">
+          <h1>Elecciones 2025</h1>
+          <p class="subtitle">Renovación de Autoridades SUTE</p>
+          <div class="cta-group">
+            <a href="#propuesta" class="btn btn-primary">Conocé la Propuesta</a>
+            <a href="#equipo" class="btn btn-outline">Nuestro Equipo</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Propuesta -->
+      <section id="propuesta" class="section section-alt" aria-labelledby="title-propuesta">
+        <div class="container">
+          <h2 id="title-propuesta">Propuesta</h2>
+          <p class="lead">Ejes y compromisos para fortalecer la representación y la participación.</p>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Transparencia</h3>
+              <p>Rendición de cuentas periódica, presupuesto abierto y canales de participación claros.</p>
+            </article>
+            <article class="card">
+              <h3>Formación</h3>
+              <p>Capacitaciones continuas, herramientas pedagógicas y espacios de intercambio.</p>
+            </article>
+            <article class="card">
+              <h3>Presencia Territorial</h3>
+              <p>Acompañamiento cercano en escuelas y seccionales con agenda federal.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Equipo / Candidaturas -->
+      <section id="equipo" class="section" aria-labelledby="title-equipo">
+        <div class="container">
+          <h2 id="title-equipo">Equipo</h2>
+          <p class="lead">Personas comprometidas con la educación pública y el trabajo docente.</p>
+          <div class="grid-4" id="equipo-grid">
+            <!-- Las tarjetas se cargarán dinámicamente desde scripts/candidatos.json -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Calendario -->
+      <section id="calendario" class="section section-alt" aria-labelledby="title-calendario">
+        <div class="container">
+          <h2 id="title-calendario">Calendario</h2>
+          <p class="lead">Fechas clave del proceso electoral.</p>
+          <ul class="timeline" aria-label="Línea de tiempo electoral">
+            <li>
+              <span class="date">7 OCT</span>
+              <span class="desc">Elección — Lista 8</span>
+            </li>
+            <li>
+              <span class="date">15 SEP</span>
+              <span class="desc">Publicación de padrones definitivos</span>
+            </li>
+            <li>
+              <span class="date">30 AGO</span>
+              <span class="desc">Cierre de listas</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contacto -->
+      <section id="contacto" class="section" aria-labelledby="title-contacto">
+        <div class="container">
+          <h2 id="title-contacto">Contacto</h2>
+          <p class="lead">Dejanos tu mensaje para sumarte o conocer más.</p>
+          <form class="contact-form" name="contacto" novalidate>
+            <div class="form-row">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="tu@correo.com" required />
+            </div>
+            <div class="form-row">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribí tu mensaje" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="#inicio" aria-label="Ir al inicio">
+            <img class="logo-img" src="scripts/assets/LOGO.png" alt="Frente Acción logo" />
+            <span class="brand-text">Frente Acción</span>
+          </a>
+          <p class="small"> &copy; <span id="year"></span> Frente Acción. Todos los derechos reservados.</p>
+        </div>
+        <nav aria-label="Navegación de pie de página">
+          <ul class="footer-menu">
+            <li><a href="#propuesta">Propuesta</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#calendario">Calendario</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Fallback inline para candidatos cuando se abre por file:// -->
+    <script type="application/json" id="candidatos-data">[
+      {
+        "nombre": "Afiches — Delegación 1",
+        "rol": "Lista 8 — Elecciones 2025",
+        "foto": "scripts/assets/candidatos/WhatsApp%20Image%202025-09-15%20at%2009.28.17.jpeg"
+      },
+      {
+        "nombre": "Afiches — Delegación 2",
+        "rol": "Lista 8 — Elecciones 2025",
+        "foto": "scripts/assets/candidatos/WhatsApp%20Image%202025-09-15%20at%2020.13.24.jpeg"
+      },
+      {
+        "nombre": "Afiches — Delegación 3",
+        "rol": "Lista 8 — Elecciones 2025",
+        "foto": "scripts/assets/candidatos/WhatsApp%20Image%202025-09-15%20at%2020.13.25.jpeg"
+      },
+      {
+        "nombre": "Afiches — Delegación 4",
+        "rol": "Lista 8 — Elecciones 2025",
+        "foto": "scripts/assets/candidatos/WhatsApp%20Image%202025-09-15%20at%2020.13.27.jpeg"
+      },
+      {
+        "nombre": "Afiches — Delegación 5",
+        "rol": "Lista 8 — Elecciones 2025",
+        "foto": "scripts/assets/candidatos/WhatsApp%20Image%202025-09-15%20at%2020.13.28.jpeg"
+      }
+    ]</script>
+
+    <script src="scripts/main.js" defer></script>
+  </body>
+</html>
