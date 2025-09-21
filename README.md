@@ -25,6 +25,45 @@ No requiere Node ni build. Abrir `index.html` en el navegador.
    - Branch: `main` y carpeta `/root`.
 4. GitHub generará una URL del estilo `https://usuario.github.io/WEBFRENTEACCION/`.
 
+## Deploy a GitHub Pages
+
+- Repo: https://github.com/frenteaccion2025-maker/-WEBFRENTEACCION-.git
+
+### 1) Inicializar y subir
+
+```bash
+cd WEBFRENTEACCION
+git init
+git add .
+git commit -m "Publicación inicial: WEBFRENTEACCION"
+git branch -M main
+git remote add origin https://github.com/frenteaccion2025-maker/-WEBFRENTEACCION-.git
+git push -u origin main
+```
+
+### 2) Activar Pages
+- GitHub -> Settings -> Pages
+- Source: Deploy from a branch
+- Branch: `main` / root
+
+### 3) Dominio personalizado (opcional)
+- Crear archivo `CNAME` en la raíz con tu dominio, por ejemplo:
+```
+frenteaccion.com.ar
+```
+- DNS en tu proveedor:
+  - CNAME `www` -> `frenteaccion2025-maker.github.io`
+  - A records para el dominio raíz:
+    - 185.199.108.153
+    - 185.199.109.153
+    - 185.199.110.153
+    - 185.199.111.153
+- Enforce HTTPS en GitHub Pages.
+
+### 4) Edición de contenido
+- Editá `index.html` (Tailwind + AOS + Feather)
+- Las imágenes apuntan a URLs externas, por lo que no necesitás subir assets locales.
+
 ## Dominio propio
 1. En Settings → Pages → Custom domain: escriba su dominio (ej.: `frenteaccion.com`).
 2. En su proveedor DNS, agregue registros:
