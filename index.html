@@ -1,186 +1,319 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Frente Acción — Elecciones 2025</title>
-    <meta name="description" content="Frente Acción | Elecciones 2025 — Renovación de Autoridades SUTE. Propuesta, equipo, calendario y contacto." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="icon" href="assets/favicon.ico" />
-  </head>
-  <body>
-    <a class="skip-link" href="#inicio">Saltar al contenido</a>
-
-    <header class="site-header" role="banner">
-      <div class="container header-content">
-        <a class="brand" href="#inicio" aria-label="Ir al inicio">
-          <img class="logo-img" src="scripts/assets/LOGO.png" alt="Frente Acción logo" />
-          <span class="brand-text">Frente Acción</span>
-        </a>
-
-        <nav class="main-nav" aria-label="Navegación principal">
-          <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-          </button>
-          <ul id="menu" class="menu">
-            <li><a href="#propuesta">Propuesta</a></li>
-            <li><a href="#equipo">Equipo</a></li>
-            <li><a href="#calendario">Calendario</a></li>
-            <li><a href="#contacto" class="btn btn-primary">Contacto</a></li>
-          </ul>
-        </nav>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frente Acción - Por vos en el SUTE | frenteaccion.com.ar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" href="https://frenteaccion.com.ar/images/favicon.ico" />
+    <style>
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('TU_URL_DE_LA_FOTO_AQUI');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .demands-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .demands-list li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #e63946;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="./LOGO.png" alt="Logo Frente Acción" class="w-16 h-16">
+                <h1 class="text-2xl font-bold text-gray-800">
+                    Frente Acción <span class="block text-lg font-normal text-gray-600">Por vos en el SUTE</span>
+                </h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#" class="text-gray-800 hover:text-red-600 transition">Inicio</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-red-600 transition">Propuestas</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-red-600 transition">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
     </header>
 
-    <main id="inicio">
-      <!-- Hero -->
-      <section class="hero" aria-label="Portada">
-        <div class="hero-media">
-          <!-- Imagen de banner provista por el usuario -->
-          <img src="scripts/assets/WhatsApp%20Image%202025-09-08%20at%2015.40.07.jpeg" alt="Frente Acción — Elecciones 2025, Renovación de Autoridades SUTE" />
+    <!-- Hero Section -->
+    <section class="hero-image" data-aos="fade" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://huggingface.co/spaces/FRENTEACCION/frente-accion/resolve/main/images/WhatsApp%20Image%202025-09-08%20at%2015.40.07.jpeg'); background-position: center 35%; background-size: contain; background-repeat: no-repeat; background-color: #000;">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">Por un SUTE que no traicione derechos laborales</h2>
         </div>
-        <div class="container hero-content">
-          <h1>Elecciones 2025</h1>
-          <p class="subtitle">Renovación de Autoridades SUTE</p>
-          <div class="cta-group">
-            <a href="#propuesta" class="btn btn-primary">Conocé la Propuesta</a>
-            <a href="#equipo" class="btn btn-outline">Nuestro Equipo</a>
-          </div>
-        </div>
-      </section>
+    </section>
 
-      <!-- Propuesta -->
-      <section id="propuesta" class="section section-alt" aria-labelledby="title-propuesta">
-        <div class="container">
-          <h2 id="title-propuesta">Propuesta</h2>
-          <p class="lead">Ejes y compromisos para fortalecer la representación y la participación.</p>
-          <div class="grid-3">
-            <article class="card">
-              <h3>Transparencia</h3>
-              <p>Rendición de cuentas periódica, presupuesto abierto y canales de participación claros.</p>
-            </article>
-            <article class="card">
-              <h3>Formación</h3>
-              <p>Capacitaciones continuas, herramientas pedagógicas y espacios de intercambio.</p>
-            </article>
-            <article class="card">
-              <h3>Presencia Territorial</h3>
-              <p>Acompañamiento cercano en escuelas y seccionales con agenda federal.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Equipo / Candidaturas -->
-      <section id="equipo" class="section" aria-labelledby="title-equipo">
-        <div class="container">
-          <h2 id="title-equipo">Equipo</h2>
-          <p class="lead">Personas comprometidas con la educación pública y el trabajo docente.</p>
-          <div class="grid-4" id="equipo-grid">
-            <!-- Las tarjetas se cargarán dinámicamente desde scripts/candidatos.json -->
-          </div>
-        </div>
-      </section>
-
-      <!-- Calendario -->
-      <section id="calendario" class="section section-alt" aria-labelledby="title-calendario">
-        <div class="container">
-          <h2 id="title-calendario">Calendario</h2>
-          <p class="lead">Fechas clave del proceso electoral.</p>
-          <ul class="timeline" aria-label="Línea de tiempo electoral">
-            <li>
-              <span class="date">7 OCT</span>
-              <span class="desc">Elección — Lista 8</span>
-            </li>
-            <li>
-              <span class="date">15 SEP</span>
-              <span class="desc">Publicación de padrones definitivos</span>
-            </li>
-            <li>
-              <span class="date">30 AGO</span>
-              <span class="desc">Cierre de listas</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Contacto -->
-      <section id="contacto" class="section" aria-labelledby="title-contacto">
-        <div class="container">
-          <h2 id="title-contacto">Contacto</h2>
-          <p class="lead">Dejanos tu mensaje para sumarte o conocer más.</p>
-          <form class="contact-form" name="contacto" novalidate>
-            <div class="form-row">
-              <label for="nombre">Nombre</label>
-              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
+    <!-- Key Points -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Nuestros Principales Compromisos</h2>
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-2 text-red-600">1. Paritarias integrales</h3>
+                    <p class="text-gray-700">Negociaciones salariales completas y transparentes</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-2 text-red-600">2. Blanqueo salarial</h3>
+                    <p class="text-gray-700">Salarios transparentes y en regla</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-2 text-red-600">3. Plenarios Provinciales</h3>
+                    <p class="text-gray-700">Participación activa de todos los delegados</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-2 text-red-600">4. Conducción colegiada</h3>
+                    <p class="text-gray-700">Toma de decisiones compartida</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-2 text-red-600">5. Descentralización OSEP</h3>
+                    <p class="text-gray-700">Acceso más cercano a servicios</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-2 text-red-600">6. Reivindicación Estatutos</h3>
+                    <p class="text-gray-700">Respeto a derechos docentes y celadores</p>
+                </div>
             </div>
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="tu@correo.com" required />
-            </div>
-            <div class="form-row">
-              <label for="mensaje">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribí tu mensaje" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            <p class="form-status" role="status" aria-live="polite"></p>
-          </form>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <a class="brand" href="#inicio" aria-label="Ir al inicio">
-            <img class="logo-img" src="scripts/assets/LOGO.png" alt="Frente Acción logo" />
-            <span class="brand-text">Frente Acción</span>
-          </a>
-          <p class="small"> &copy; <span id="year"></span> Frente Acción. Todos los derechos reservados.</p>
+    <!-- Proposals Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nuestras Propuestas</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Gremial -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">Gremial</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Paritarias Integrales Provinciales y Nacional</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Salario en Blanco, Remunerativo y Bonificables</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Capacitación para dirigentes sindicales</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Afiliación masiva y formación de delegados</li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">Social</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Acceso a vivienda mediante convenios</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Convenios intersindicales para turismo</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Descentralización de OSEP en 4 zonas</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Acompañamiento en Salud Laboral</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Actividades para Jubilados</li>
+                    </ul>
+                </div>
+
+                <!-- Previsional -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">Previsional</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Oficinas de atención a jubilados</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Sistema de comunicación con jubilados</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Liquidación de deudas a jubilados</li>
+                    </ul>
+                </div>
+
+                <!-- Formación y Carrera -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">Formación y Carrera</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Convenios para actualización profesional</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Seminarios y congresos educativos</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Reforma Educativa participativa</li>
+                    </ul>
+                </div>
+
+                <!-- Géneros -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">Géneros</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Oficinas de atención sobre temáticas de género</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Acompañamiento terapéutico-legal</li>
+                    </ul>
+                </div>
+
+                <!-- Docentes -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">Docentes</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Blanqueo salarial sobre Básico Docente</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Intervención en junta de salud laboral</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Actualización de enfermedades reconocidas</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Programas de prevención primaria</li>
+                    </ul>
+                </div>
+
+                <!-- Celadores -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="text-xl font-bold mb-4 text-red-600">Celadores</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Junta calificadora de celadores</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Formación sindical y capacitación</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Pago diferenciado por roles y cargos</li>
+                        <li class="flex items-start"><span class="text-red-600 mr-2">•</span> Mejoras en condiciones laborales</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <nav aria-label="Navegación de pie de página">
-          <ul class="footer-menu">
-            <li><a href="#propuesta">Propuesta</a></li>
-            <li><a href="#equipo">Equipo</a></li>
-            <li><a href="#calendario">Calendario</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </nav>
-      </div>
+    </section>
+
+    <!-- Detailed Proposals -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Desarrollo de Propuestas</h2>
+            
+            <div class="max-w-4xl mx-auto space-y-12">
+                <!-- Afiliados Jubilados -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-4 text-red-600">Afiliados Jubilados</h3>
+                    <ul class="space-y-3 demands-list">
+                        <li>Liquidación de lo adeudado a los jubilados con sentencia firme.</li>
+                        <li>Participación en actividades sindicales y recreativas.</li>
+                        <li>Propiciar espacios para actividades lúdico, cognitivo, deportivo y artísticas.</li>
+                        <li>Poner en valor la trayectoria y conquista de derechos de nuestros jubilados.</li>
+                    </ul>
+                </div>
+
+                <!-- Celadores -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-4 text-red-600">Celadores</h3>
+                    <ul class="space-y-3 demands-list">
+                        <li>Poner en funcionamiento la junta calificadora de celadores.</li>
+                        <li>Talleres para formación sindical y capacitación en oficios.</li>
+                        <li>Articular para culminación de estudios secundarios.</li>
+                        <li>Pago diferenciado por roles y cargos.</li>
+                        <li>Mejorar condiciones de salubridad laboral.</li>
+                        <li>Nueva escala de antigüedad y mejora en porcentaje de jubilación.</li>
+                    </ul>
+                </div>
+
+                <!-- Docentes -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-4 text-red-600">Docentes</h3>
+                    <ul class="space-y-3 demands-list">
+                        <li>Blanqueo salarial sobre Básico Docente.</li>
+                        <li>Intervención en junta de salud laboral para fonodiología y nutrición.</li>
+                        <li>Actualizar listado de enfermedades reconocidas por ART.</li>
+                        <li>Programas de prevención primaria en toda la provincia.</li>
+                        <li>Reducción de trabajo administrativo no rentado.</li>
+                        <li>Titularización por paritarias con más de 6 años de antigüedad.</li>
+                        <li>Mejoras para docentes de escuelas artísticas y albergues.</li>
+                    </ul>
+                </div>
+
+                <!-- Docentes CCT -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-4 text-red-600">Docentes de CCT</h3>
+                    <ul class="space-y-3 demands-list">
+                        <li>Revalorizar la actividad de los CCT y su difusión.</li>
+                        <li>Actualizar recursos para dictado de talleres.</li>
+                        <li>Avanzar en diseño curricular de enseñanza.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Candidatos Section -->
+    <section id="candidatos" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Conoce a nuestros candidatos</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up">
+                    <img src="./WhatsApp%20Image%202025-09-08%20at%2015.40.07.jpeg" alt="Candidato 1" class="w-full h-64 object-cover rounded-lg mb-4">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="./WhatsApp%20Image%202025-09-15%20at%2020.13.24.jpeg" alt="Candidato 2" class="w-full h-64 object-cover rounded-lg mb-4">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="./WhatsApp%20Image%202025-09-15%20at%2020.13.25.jpeg" alt="Candidato 3" class="w-full h-64 object-cover rounded-lg mb-4">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up">
+                    <img src="./WhatsApp%20Image%202025-09-15%20at%2020.13.27.jpeg" alt="Candidato 4" class="w-full h-64 object-cover rounded-lg mb-4">
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="./WhatsApp%20Image%202025-09-15%20at%2020.13.28.jpeg" alt="Candidato 5" class="w-full h-64 object-cover rounded-lg mb-4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">¿Querés sumarte a nuestra lucha?</h2>
+            <p class="text-xl mb-8">Juntos podemos construir un SUTE más justo para todos los trabajadores de la educación.</p>
+            <a href="mailto:frenteaccion2025@gmail.com" class="bg-white text-red-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition inline-block">
+                Contactanos
+            </a>
+            <div class="mt-4">
+                <a href="https://wa.me/5426158614" class="text-white hover:underline">WhatsApp: 261 5518614</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold">
+                            FA
+                        </div>
+                        <span class="text-xl font-bold">Frente Acción</span>
+                    </div>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.facebook.com/profile.php?id=61579836327425&mibextid=ZbWKwL" class="hover:text-red-400 transition" target="_blank">
+                        <i data-feather="facebook"></i>
+                    </a>
+                    <a href="https://whatsapp.com/channel/0029Vb6lbdM7Noa2MS6s6b1R" class="hover:text-red-400 transition" target="_blank">
+                        <i data-feather="message-circle"></i>
+                    </a>
+                    <a href="https://www.instagram.com/frenteaccion?utm_source=qr&igsh=NmM0NGpieDVnYWdv" class="hover:text-red-400 transition" target="_blank">
+                        <i data-feather="instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p> 2023 Frente Acción - Todos los derechos reservados</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Fallback inline para candidatos cuando se abre por file:// -->
-    <script type="application/json" id="candidatos-data">[
-      {
-        "nombre": "Afiches — Delegación 1",
-        "rol": "Lista 8 — Elecciones 2025",
-        "foto": "scripts/assets/CANDIDATOS/WhatsApp%20Image%202025-09-15%20at%2009.28.17.jpeg"
-      },
-      {
-        "nombre": "Afiches — Delegación 2",
-        "rol": "Lista 8 — Elecciones 2025",
-        "foto": "scripts/assets/CANDIDATOS/WhatsApp%20Image%202025-09-15%20at%2020.13.24.jpeg"
-      },
-      {
-        "nombre": "Afiches — Delegación 3",
-        "rol": "Lista 8 — Elecciones 2025",
-        "foto": "scripts/assets/CANDIDATOS/WhatsApp%20Image%202025-09-15%20at%2020.13.25.jpeg"
-      },
-      {
-        "nombre": "Afiches — Delegación 4",
-        "rol": "Lista 8 — Elecciones 2025",
-        "foto": "scripts/assets/CANDIDATOS/WhatsApp%20Image%202025-09-15%20at%2020.13.27.jpeg"
-      },
-      {
-        "nombre": "Afiches — Delegación 5",
-        "rol": "Lista 8 — Elecciones 2025",
-        "foto": "scripts/assets/CANDIDATOS/WhatsApp%20Image%202025-09-15%20at%2020.13.28.jpeg"
-      }
-    ]</script>
-
-    <script src="scripts/main.js" defer></script>
-  </body>
+    <script>
+        AOS.init();
+        feather.replace();
+    </script>
+</body>
 </html>
