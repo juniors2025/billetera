@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const img = document.createElement('img');
       img.alt = c.nombre ? `Foto de ${c.nombre}` : 'Foto de candidato';
-      img.src = c.foto || 'scripts/assets/candidatos/placeholder.jpg';
+      img.src = c.foto || 'assets/candidato-1.jpeg';
       img.loading = 'lazy';
       img.referrerPolicy = 'no-referrer';
-      img.onerror = () => { img.onerror = null; img.src = 'scripts/assets/candidatos/placeholder.jpg'; };
+      img.onerror = () => { img.onerror = null; img.src = 'assets/candidato-1.jpeg'; };
 
       const h3 = document.createElement('h3');
       h3.textContent = c.nombre || 'Sin nombre';

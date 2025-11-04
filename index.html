@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" href="https://frenteaccion.com.ar/images/favicon.ico" />
+    <link rel="stylesheet" href="styles/styles.css">
     <style>
         .hero-image {
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('TU_URL_DE_LA_FOTO_AQUI');
@@ -44,20 +45,24 @@
     <header class="bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <img src="./assets/logo.png" alt="Logo Frente Acción" class="w-16 h-16">
+                <img src="./LOGO.png" alt="Logo Frente Acción" class="w-16 h-16">
                 <h1 class="text-2xl font-bold text-gray-800">
                     Frente Acción <span class="block text-lg font-normal text-gray-600">Por vos en el SUTE</span>
                 </h1>
             </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-8">
+            <nav class="main-nav hidden md:block">
+                <ul id="menu" class="menu flex space-x-8">
                     <li><a href="#" class="text-gray-800 hover:text-red-600 transition">Inicio</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-red-600 transition">Propuestas</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-red-600 transition">Contacto</a></li>
+                    <li><a href="./bonos.html" class="text-red-600 font-semibold hover:text-red-700 transition">Bonos sin depósito</a></li>
+                    <li><a href="./wallet.html" class="text-gray-800 hover:text-red-600 transition">Billetera</a></li>
                 </ul>
             </nav>
-            <button class="md:hidden">
-                <i data-feather="menu"></i>
+            <button class="nav-toggle md:hidden" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </button>
         </div>
     </header>
@@ -246,24 +251,7 @@
     <section id="candidatos" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Conoce a nuestros candidatos</h2>
-            
-            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up">
-                    <img src="./assets/candidato-1.jpeg" alt="Candidato 1" class="w-full h-64 object-cover rounded-lg mb-4">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="100">
-                    <img src="./assets/candidato-2.jpeg" alt="Candidato 2" class="w-full h-64 object-cover rounded-lg mb-4">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="200">
-                    <img src="./assets/candidato-3.jpeg" alt="Candidato 3" class="w-full h-64 object-cover rounded-lg mb-4">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up">
-                    <img src="./assets/candidato-4.jpeg" alt="Candidato 4" class="w-full h-64 object-cover rounded-lg mb-4">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow text-center" data-aos="fade-up" data-aos-delay="100">
-                    <img src="./assets/candidato-5.jpeg" alt="Candidato 5" class="w-full h-64 object-cover rounded-lg mb-4">
-                </div>
-            </div>
+            <div id="equipo-grid" class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"></div>
         </div>
     </section>
 
@@ -306,7 +294,7 @@
                 </div>
             </div>
             <div class="mt-8 text-center text-gray-400">
-                <p> 2023 Frente Acción - Todos los derechos reservados</p>
+                <p><span id="year"></span> Frente Acción - Todos los derechos reservados</p>
             </div>
         </div>
     </footer>
@@ -315,5 +303,6 @@
         AOS.init();
         feather.replace();
     </script>
+    <script src="scripts/main.js"></script>
 </body>
 </html>

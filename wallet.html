@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billetera — Frente Acción</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-white shadow">
+    <div class="max-w-3xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Billetera EVM</h1>
+      <a href="./index.html" class="text-sm text-blue-600 hover:underline">Volver</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-6 space-y-6">
+    <section class="bg-white rounded shadow p-4">
+      <h2 class="font-semibold mb-2">Comenzar</h2>
+      <div class="flex gap-2 flex-wrap">
+        <button id="btnCreate" class="bg-green-600 hover:bg-green-700 text-white rounded px-3 py-2">Crear nueva</button>
+        <button id="btnImport" class="bg-gray-100 hover:bg-gray-200 rounded px-3 py-2">Importar seed</button>
+      </div>
+      <textarea id="seedIn" class="mt-3 w-full border rounded px-3 py-2 hidden" rows="2" placeholder="frase de 12/24 palabras..."></textarea>
+    </section>
+
+    <section class="bg-white rounded shadow p-4">
+      <h2 class="font-semibold mb-2">Cuenta</h2>
+      <p class="text-sm text-gray-600">Dirección:</p>
+      <code id="addr" class="block p-2 bg-gray-100 rounded break-all">—</code>
+      <div class="mt-3 flex gap-2">
+        <button id="btnShowPriv" class="bg-gray-100 hover:bg-gray-200 rounded px-3 py-2">Mostrar clave (local)</button>
+        <button id="btnLock" class="bg-gray-100 hover:bg-gray-200 rounded px-3 py-2">Bloquear</button>
+      </div>
+    </section>
+
+    <section class="bg-white rounded shadow p-4">
+      <h2 class="font-semibold mb-2">Balance (nativo)</h2>
+      <div class="flex gap-2 items-center">
+        <select id="net" class="border rounded px-2 py-1">
+          <option value="sepolia">Sepolia</option>
+          <option value="polygon">Polygon</option>
+          <option value="ethereum">Ethereum</option>
+          <option value="bsc">BSC</option>
+        </select>
+        <button id="btnRefresh" class="bg-blue-600 hover:bg-blue-700 text-white rounded px-3 py-2">Actualizar</button>
+      </div>
+      <p id="bal" class="mt-2 text-lg">—</p>
+    </section>
+
+    <section class="bg-white rounded shadow p-4">
+      <h2 class="font-semibold mb-2">Enviar (nativo)</h2>
+      <div class="grid gap-2 md:grid-cols-2">
+        <input id="to" class="border rounded px-3 py-2" placeholder="0xDestinatario" />
+        <input id="amount" class="border rounded px-3 py-2" placeholder="Monto (ETH/MATIC/BNB)" />
+      </div>
+      <button id="btnSend" class="mt-3 bg-black text-white rounded px-4 py-2">Enviar</button>
+      <p id="txStatus" class="text-sm text-gray-600 mt-2"></p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.min.js"></script>
+  <script src="./wallet.js"></script>
+</body>
+</html>
