@@ -1,0 +1,93 @@
+[
+  {
+    "platform": "Freecash",
+    "type": "microtareas",
+    "reward": "Variable por tarea (+bonus diario)",
+    "currency": "USDT",
+    "paysIn": ["USDT", "BTC", "LTC", "PayPal (según región)", "Gift Cards"],
+    "time": "<=72h",
+    "noDeposit": true,
+    "region": "Global (verifica métodos de retiro en AR)",
+    "risk": "medio",
+    "notes": "Completar encuestas/ofertas. Retiro mínimo bajo y opciones cripto.",
+    "url": "https://freecash.com/"
+  },
+  {
+    "platform": "TimeBucks",
+    "type": "microtareas",
+    "reward": "Variable por tarea",
+    "currency": "USDT",
+    "paysIn": ["USDT", "BTC", "Payeer", "AirTM"],
+    "time": "<=72h",
+    "noDeposit": true,
+    "region": "Global",
+    "risk": "medio",
+    "notes": "Encuestas, tareas y pequeñas misiones. Soporta retiros a billeteras o procesadores intermedios.",
+    "url": "https://timebucks.com/"
+  },
+  {
+    "platform": "Idle-Empire",
+    "type": "microtareas",
+    "reward": "Variable por tarea",
+    "currency": "USDT",
+    "paysIn": ["USDT", "BTC", "ETH", "Gift Cards"],
+    "time": "<=72h",
+    "noDeposit": true,
+    "region": "Global",
+    "risk": "medio",
+    "notes": "Ofertas y encuestas; retiros en cripto y gift cards.",
+    "url": "https://www.idle-empire.com/"
+  },
+  {
+    "platform": "OKX Learn & Earn",
+    "type": "learn",
+    "reward": "Cupones/USDT por quiz",
+    "currency": "USDT",
+    "paysIn": ["USDT", "Cupones de trading"],
+    "time": "<=72h",
+    "noDeposit": true,
+    "region": "Varía por campaña",
+    "risk": "bajo",
+    "notes": "Revisa el centro de recompensas; puede requerir KYC básico pero sin depósito.",
+    "url": "https://www.okx.com/academy/learn-and-earn"
+  },
+  {
+    "platform": "Binance Academy Learn & Earn",
+    "type": "learn",
+    "reward": "Cripto por completar lecciones/quiz",
+    "currency": "USDT",
+    "paysIn": ["Cripto (varía)"],
+    "time": ">72h",
+    "noDeposit": true,
+    "region": "Varía por país/campaña",
+    "risk": "bajo",
+    "notes": "No siempre disponible para todas las regiones; suele requerir KYC básico.",
+    "url": "https://academy.binance.com/learn-and-earn"
+  },
+  {
+    "platform": "Galxe Quests",
+    "type": "learn",
+    "reward": "Tokens/NFTs (según campaña)",
+    "currency": "USDT",
+    "paysIn": ["Tokens", "NFTs"],
+    "time": ">72h",
+    "noDeposit": true,
+    "region": "Global",
+    "risk": "medio",
+    "notes": "Algunas campañas entregan tokens canjeables; no es garantizado ni inmediato.",
+    "url": "https://galxe.com/"
+  },
+  {
+    "platform": "Faucet Sepolia ETH",
+    "type": "testnet",
+    "reward": "ETH de testnet",
+    "currency": "ETH",
+    "paysIn": ["ETH (Sepolia)"],
+    "time": "<=24h",
+    "noDeposit": true,
+    "region": "Global",
+    "risk": "bajo",
+    "notes": "Para probar envíos en la billetera sin riesgo.",
+    "url": "https://sepoliafaucet.com/"
+  }
+]

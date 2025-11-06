@@ -27,6 +27,12 @@
 
   let wallet = null; // ethers.Wallet en memoria
   let provider = null;
+  const polygonTokens = {
+    USDC: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+    USDT: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
+    WETH: '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619'
+  };
+  let lastQuote = null;
 
   function setProvider() {
     const id = $('net').value;
@@ -125,7 +131,90 @@
     }
   });
 
+  if (document.getElementById('btnQuote')) {
+    $('btnQuote').addEventListener('click', async () => {
+      try {
+        if (!wallet) return alert('Desbloqueá/importá una cuenta primero');
+        if ($('net').value !== 'polygon') return alert('El trading MVP está habilitado en Polygon');
+        const amountStr = ($('tradeAmt').value || '').trim();
+        if (!amountStr) return alert('Indicá el monto nativo a vender');
+        const sellAmount = ethers.parseEther(amountStr).toString();
+        const buySym = $('tradeTo').value;
+        const buyToken = polygonTokens[buySym];
+        const slip = Math.max(0, parseFloat($('tradeSlip').value || '0.5')) / 100;
+        const url = new URL('https://polygon.api.0x.org/swap/v1/quote');
+        url.searchParams.set('sellToken', 'MATIC');
+        url.searchParams.set('buyToken', buyToken);
+        url.searchParams.set('sellAmount', sellAmount);
+        url.searchParams.set('slippagePercentage', String(slip));
+        url.searchParams.set('takerAddress', wallet.address);
+        const res = await fetch(url.toString());
+        if (!res.ok) throw new Error('No se pudo obtener la cotización');
+        const q = await res.json();
+        lastQuote = q;
+        $('quoteOut').textContent = JSON.stringify({
+          price: q.price,
+          guaranteedPrice: q.guaranteedPrice,
+          buyAmount: q.buyAmount,
+          estimatedGas: q.estimatedGas,
+          to: q.to
+        }, null, 2);
+        $('btnSwap').disabled = false;
+      } catch (e) {
+        $('quoteOut').textContent = 'Error al cotizar';
+        $('btnSwap').disabled = true;
+        console.error(e);
+      }
+    });
+    $('btnSwap').addEventListener('click', async () => {
+      try {
+        if (!wallet) return alert('Desbloqueá/importá una cuenta primero');
+        if (!lastQuote) return alert('Primero obtené una cotización');
+        $('btnSwap').disabled = true;
+        const tx = await wallet.sendTransaction({ to: lastQuote.to, data: lastQuote.data, value: lastQuote.value });
+        $('quoteOut').textContent = `Swap enviado: ${tx.hash}`;
+      } catch (e) {
+        $('quoteOut').textContent = 'Error al enviar swap';
+        console.error(e);
+      } finally {
+        setTimeout(() => { $('btnSwap').disabled = false; }, 1500);
+      }
+    });
+  }
+
+  async function loadBonos() {
+    try {
+      const el = document.getElementById('bonosList');
+      if (!el) return;
+      const res = await fetch('./data/bonos.json');
+      if (!res.ok) throw new Error('No se pudo cargar bonos');
+      const items = await res.json();
+      el.innerHTML = '';
+      items.forEach(it => {
+        const row = document.createElement('div');
+        row.className = 'py-3';
+        const a = document.createElement('a');
+        a.href = it.url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.className = 'text-blue-600 hover:underline';
+        a.textContent = `${it.platform} — ${it.type}`;
+        const p = document.createElement('p');
+        p.className = 'text-sm text-gray-600';
+        p.textContent = it.notes || '';
+        row.appendChild(a);
+        row.appendChild(p);
+        el.appendChild(row);
+      });
+    } catch (e) {
+      const el = document.getElementById('bonosList');
+      if (el) el.textContent = 'No se pudo cargar el listado';
+      console.error(e);
+    }
+  }
+
   // init
   setProvider();
   showAddress();
+  loadBonos();
 })();
