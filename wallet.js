@@ -23,6 +23,7 @@
       rpc: 'https://bsc-dataseed.binance.org',
       symbol: 'BNB'
     }
+  };
 
   // QR recibir
   function renderQR() {
@@ -69,7 +70,7 @@
       console.error(e);
     }
   }
-  };
+  
 
   let wallet = null; // ethers.Wallet en memoria
   let provider = null;

@@ -45,7 +45,7 @@ async function publishItem(it) {
 }
 
 function loadBonos() {
-  const file = path.join(__dirname, '../data/bonos.json');
+  const file = path.join(__dirname, 'data/bonos.json');
   const raw = fs.readFileSync(file, 'utf8');
   const items = JSON.parse(raw);
   // Filtro muy simple por región si aplica
