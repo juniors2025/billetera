@@ -23,6 +23,52 @@
       rpc: 'https://bsc-dataseed.binance.org',
       symbol: 'BNB'
     }
+
+  // QR recibir
+  function renderQR() {
+    const qrEl = document.getElementById('qr');
+    if (!qrEl) return;
+    qrEl.innerHTML = '';
+    if (!wallet) return;
+    try {
+      // global QRCode from qrcodejs
+      // eslint-disable-next-line no-undef
+      new QRCode(qrEl, { text: wallet.address, width: 144, height: 144 });
+    } catch (e) { console.error(e); }
+  }
+
+  // Tokens (ERC-20) en Polygon
+  async function loadTokens() {
+    const listEl = document.getElementById('tokensList');
+    if (!listEl) return;
+    listEl.innerHTML = '';
+    if (!$('net') || $('net').value !== 'polygon') {
+      listEl.textContent = 'Tokens disponibles en la pestaña Polygon.';
+      return;
+    }
+    if (!wallet) { listEl.textContent = 'Desbloqueá/importá una cuenta.'; return; }
+    try {
+      const abi = [
+        'function balanceOf(address) view returns (uint256)',
+        'function decimals() view returns (uint8)',
+        'function symbol() view returns (string)'
+      ];
+      for (const [sym, addr] of Object.entries(polygonTokens)) {
+        const c = new ethers.Contract(addr, abi, provider);
+        const [dec, symbol, bal] = await Promise.all([
+          c.decimals(), c.symbol(), c.balanceOf(wallet.address)
+        ]);
+        const human = Number(ethers.formatUnits(bal, dec));
+        const row = document.createElement('div');
+        row.className = 'py-2 flex justify-between text-sm';
+        row.innerHTML = `<span>${symbol} (${sym})</span><span>${human}</span>`;
+        listEl.appendChild(row);
+      }
+    } catch (e) {
+      listEl.textContent = 'Error al cargar tokens.';
+      console.error(e);
+    }
+  }
   };
 
   let wallet = null; // ethers.Wallet en memoria
@@ -33,6 +79,26 @@
     WETH: '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619'
   };
   let lastQuote = null;
+
+  // Tabs simples
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panels = {
+    cuenta: document.getElementById('panel-cuenta'),
+    enviar: document.getElementById('panel-enviar'),
+    recibir: document.getElementById('panel-recebir'),
+    tokens: document.getElementById('panel-tokens'),
+    trading: document.getElementById('panel-trading'),
+    bonos: document.getElementById('panel-bonos'),
+  };
+  tabBtns.forEach(btn => btn.addEventListener('click', () => {
+    const target = btn.getAttribute('data-tab');
+    Object.values(panels).forEach(p => p && p.classList.add('hidden'));
+    panels[target] && panels[target].classList.remove('hidden');
+    tabBtns.forEach(b => b.classList.remove('bg-black','text-white'));
+    btn.classList.add('bg-black','text-white');
+    if (target === 'recibir') renderQR();
+    if (target === 'tokens') loadTokens();
+  }));
 
   function setProvider() {
     const id = $('net').value;
@@ -55,6 +121,9 @@
 
   function showAddress() {
     $('addr').textContent = wallet ? wallet.address : '—';
+    const recv = document.getElementById('addrRecv');
+    if (recv) recv.textContent = wallet ? wallet.address : '—';
+    renderQR();
   }
 
   $('btnCreate').addEventListener('click', async () => {
@@ -101,6 +170,18 @@
     if (!wallet) return alert('Primero crea o importa una cuenta');
     alert(`Clave privada (NO la compartas):\n\n${wallet.privateKey}`);
   });
+
+  const btnCopy = document.getElementById('btnCopyAddr');
+  if (btnCopy) {
+    btnCopy.addEventListener('click', async () => {
+      try {
+        if (!wallet) return;
+        await navigator.clipboard.writeText(wallet.address);
+        btnCopy.textContent = 'Copiado';
+        setTimeout(()=> btnCopy.textContent = 'Copiar', 1200);
+      } catch (_) {}
+    });
+  }
 
   $('btnLock').addEventListener('click', () => {
     wallet = null;
@@ -217,4 +298,6 @@
   setProvider();
   showAddress();
   loadBonos();
+  // default tab visible ya es Cuenta; generar QR si corresponde
+  renderQR();
 })();
